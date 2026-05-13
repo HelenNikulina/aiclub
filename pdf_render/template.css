@@ -1,0 +1,434 @@
+/* === Formula AI brand styles for guide PDFs === */
+
+@font-face {
+  font-family: "Fixel Display";
+  src: url("fonts/FixelDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fixel Display";
+  src: url("fonts/FixelDisplay-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fixel Text";
+  src: url("fonts/FixelText-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fixel Text";
+  src: url("fonts/FixelText-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Exo 2";
+  src: url("fonts/Exo2-Regular.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Exo 2";
+  src: url("fonts/Exo2-Italic.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* === Brand palette ===
+   Warm Red    #FF1E00
+   Deep Red    #9E2719
+   Carbon Black#100E09
+   Off White   #F7F4F1
+   Tints       #282622 #585653 #878684 #B7B7B5
+*/
+
+/* ---- Page setup ---- */
+
+@page {
+  size: A4;
+  margin: 22mm 18mm 24mm 18mm;
+  background: #F7F4F1;
+
+  @top-left {
+    content: element(brandHeader);
+  }
+  @top-right {
+    content: "FORMULA AI \00B7  ГАЙД";
+    font-family: "Fixel Display", "Exo 2", sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.15em;
+    color: #878684;
+    padding-top: 4mm;
+  }
+  @bottom-left {
+    content: "© Formula AI \00B7  myformula.ai";
+    font-family: "Exo 2", sans-serif;
+    font-size: 8pt;
+    color: #878684;
+    padding-bottom: 4mm;
+  }
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font-family: "Fixel Display", sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    color: #100E09;
+    padding-bottom: 4mm;
+  }
+
+  /* Diagonal watermark */
+  @bottom-center {
+    content: element(watermark);
+  }
+}
+
+/* Cover page: no header/footer */
+@page :first {
+  margin: 0;
+  background: #F7F4F1;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+/* ---- Running elements ---- */
+
+.brand-header {
+  position: running(brandHeader);
+  display: flex;
+  align-items: center;
+  padding-top: 3mm;
+}
+.brand-header img {
+  height: 6mm;
+}
+
+.watermark {
+  position: running(watermark);
+  font-family: "Fixel Display", sans-serif;
+  font-size: 7pt;
+  color: #B7B7B5;
+  letter-spacing: 0.2em;
+}
+
+/* Big diagonal watermark across body */
+.diag-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-family: "Fixel Display", sans-serif;
+  font-size: 72pt;
+  font-weight: 700;
+  color: rgba(255, 30, 0, 0.06);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ---- Base typography ---- */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: #100E09;
+  background: #F7F4F1;
+  font-family: "Exo 2", "Fixel Text", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  font-weight: 400;
+  -weasy-hyphens: auto;
+}
+
+p {
+  margin: 0 0 0.7em 0;
+  orphans: 3;
+  widows: 3;
+}
+
+strong { font-weight: 700; color: #100E09; }
+em { font-style: italic; }
+
+a {
+  color: #9E2719;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(158, 39, 25, 0.35);
+}
+
+/* ---- Headings (Fixel Display) ---- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Fixel Display", "Exo 2", sans-serif;
+  color: #100E09;
+  line-height: 1.18;
+  margin: 1.4em 0 0.5em 0;
+  page-break-after: avoid;
+}
+
+/* The first h1 (document title) goes on the cover, hidden here */
+h1.doc-title {
+  display: none;
+}
+
+h2 {
+  font-size: 20pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding-top: 0.3em;
+  border-top: 2px solid #100E09;
+  padding-bottom: 0.15em;
+  margin-top: 1.6em;
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 4px;
+  background: #FF1E00;
+  vertical-align: middle;
+  margin-right: 10px;
+  transform: translateY(-2px);
+}
+
+h3 {
+  font-size: 14pt;
+  font-weight: 700;
+  color: #100E09;
+  margin-top: 1.3em;
+}
+
+h3::before {
+  content: "—";
+  color: #FF1E00;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+h4 {
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #282622;
+  margin-top: 1em;
+}
+
+/* ---- Lists ---- */
+
+ul, ol {
+  margin: 0.4em 0 0.9em 1.4em;
+  padding: 0;
+}
+ul li, ol li {
+  margin-bottom: 0.25em;
+}
+ul li::marker {
+  color: #FF1E00;
+}
+ol li::marker {
+  color: #FF1E00;
+  font-weight: 700;
+  font-family: "Fixel Display", sans-serif;
+}
+
+/* ---- Inline code ---- */
+
+code {
+  font-family: "Menlo", "Consolas", "Liberation Mono", monospace;
+  font-size: 9pt;
+  background: #ffffff;
+  color: #9E2719;
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid #E6E2DC;
+}
+
+/* ---- Code blocks ---- */
+
+pre {
+  background: #100E09;
+  color: #F7F4F1;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-family: "Menlo", "Consolas", "Liberation Mono", monospace;
+  font-size: 8.7pt;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  margin: 0.7em 0 1.1em 0;
+  border-left: 3px solid #FF1E00;
+  page-break-inside: avoid;
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ---- Tables ---- */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.7em 0 1.2em 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+th {
+  background: #100E09;
+  color: #F7F4F1;
+  font-family: "Fixel Display", sans-serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 7px 10px;
+  border: 0;
+  letter-spacing: 0.02em;
+}
+td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #E6E2DC;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #FFFFFF; }
+tr:nth-child(odd) td  { background: #F7F4F1; }
+
+/* ---- Blockquote ---- */
+
+blockquote {
+  margin: 0.8em 0;
+  padding: 10px 16px 10px 16px;
+  background: #FFFFFF;
+  border-left: 4px solid #FF1E00;
+  color: #282622;
+  font-style: normal;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+/* ---- Horizontal rule ---- */
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #B7B7B5;
+  margin: 1.6em 0;
+}
+
+hr.brand-divider {
+  height: 4px;
+  background: linear-gradient(90deg, #FF1E00 0%, #9E2719 50%, #100E09 100%);
+}
+
+/* ---- Cover page ---- */
+
+.cover {
+  page: cover;
+  page-break-after: always;
+  width: 100%;
+  height: 297mm;
+  background: #F7F4F1;
+  position: relative;
+  padding: 22mm 18mm 22mm 18mm;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Decorative red bars (F1 racing stripes) */
+.cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38mm;
+  height: 6mm;
+  background: #FF1E00;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70mm;
+  height: 6mm;
+  background: #100E09;
+}
+
+.cover .logo {
+  width: 70mm;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 70mm;
+}
+
+.cover .label {
+  font-family: "Fixel Display", sans-serif;
+  font-size: 9pt;
+  letter-spacing: 0.35em;
+  color: #9E2719;
+  text-transform: uppercase;
+  margin-bottom: 10mm;
+  font-weight: 700;
+}
+
+.cover .title {
+  font-family: "Fixel Display", sans-serif;
+  font-weight: 700;
+  font-size: 36pt;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: #100E09;
+  margin: 0 0 12mm 0;
+  max-width: 150mm;
+}
+
+.cover .accent-bar {
+  width: 28mm;
+  height: 6px;
+  background: #FF1E00;
+  margin-bottom: 8mm;
+}
+
+.cover .subtitle {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 400;
+  font-size: 12pt;
+  color: #585653;
+  max-width: 150mm;
+  margin-bottom: 0;
+}
+
+.cover .footer {
+  position: absolute;
+  bottom: 24mm;
+  left: 18mm;
+  right: 18mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: "Fixel Display", sans-serif;
+  font-size: 8.5pt;
+  letter-spacing: 0.2em;
+  color: #585653;
+  text-transform: uppercase;
+}
+
+.cover .footer .right {
+  text-align: right;
+}
+
+.cover .footer .right .ed {
+  color: #FF1E00;
+  font-weight: 700;
+}
+
+/* === Page break helpers === */
+
+.page-break { page-break-after: always; }
+img { max-width: 100%; }

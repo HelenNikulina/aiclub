@@ -1,0 +1,4 @@
+brand/
+pdf_render/output/preview-*.png
+pdf_render/output/p*-*.png
+pdf_render/output/hp-*.png
