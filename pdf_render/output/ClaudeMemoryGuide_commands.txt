@@ -1,0 +1,15 @@
+Гайд: Пам'ять Claude Code між сесіями (для claude.ai/code)
+==========================================================
+
+Усі команди з гайду — готові до копіювання.
+Номери відповідають міткам у PDF (Команда 1, Команда 2, …).
+
+----------------------------------------------------------------
+# Команда 1
+# Контекст: Покроково / Крок 6. Додай правило проактивності в CLAUDE.md
+
+current=$(git branch --show-current)
+git checkout main && git pull origin main
+# Edit MEMORY.md (нова секція в кінець)
+git add MEMORY.md && git commit -m "memory: <опис>" && git push origin main
+git checkout "$current"

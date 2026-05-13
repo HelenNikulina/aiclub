@@ -250,11 +250,66 @@ code {
 
 /* ---- Code blocks ---- */
 
+.code-card {
+  margin: 0.9em 0 1.2em 0;
+  page-break-inside: avoid;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #100E09;
+}
+
+.code-card .code-label {
+  background: #282622;
+  color: #F7F4F1;
+  font-family: "Fixel Display", sans-serif;
+  font-size: 7.8pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-left: 3px solid #FF1E00;
+  border-bottom: 1px solid #100E09;
+}
+
+.code-card .code-label .card-num {
+  color: #F7F4F1;
+}
+
+.code-card .code-label .card-lang {
+  margin-left: 10px;
+}
+
+.code-card .code-label .card-lang code {
+  background: transparent;
+  border: 0;
+  color: #FF1E00;
+  font-family: "Menlo", "Consolas", "Liberation Mono", monospace;
+  font-size: 7.6pt;
+  padding: 0;
+  letter-spacing: 0;
+  text-transform: lowercase;
+}
+
+.code-card .code-label .card-hint {
+  float: right;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 400;
+  font-size: 7.4pt;
+  color: #B7B7B5;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.code-card pre {
+  margin: 0;
+  border-left: 3px solid #FF1E00;
+  border-radius: 0;
+}
+
 pre {
   background: #100E09;
   color: #F7F4F1;
   padding: 12px 16px;
-  border-radius: 4px;
   font-family: "Menlo", "Consolas", "Liberation Mono", monospace;
   font-size: 8.7pt;
   line-height: 1.5;
@@ -262,6 +317,7 @@ pre {
   white-space: pre-wrap;
   margin: 0.7em 0 1.1em 0;
   border-left: 3px solid #FF1E00;
+  border-radius: 4px;
   page-break-inside: avoid;
 }
 
@@ -401,7 +457,28 @@ hr.brand-divider {
   font-size: 12pt;
   color: #585653;
   max-width: 150mm;
-  margin-bottom: 0;
+  margin-bottom: 8mm;
+}
+
+.cover .cover-attach {
+  font-family: "Exo 2", sans-serif;
+  font-size: 9.5pt;
+  color: #282622;
+  max-width: 150mm;
+  padding: 7px 12px 7px 12px;
+  background: #FFFFFF;
+  border-left: 3px solid #FF1E00;
+  margin: 0;
+}
+
+.cover .cover-attach code {
+  background: #F7F4F1;
+  color: #9E2719;
+  border: 1px solid #E6E2DC;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-family: "Menlo", "Consolas", monospace;
+  font-size: 8.6pt;
 }
 
 .cover .footer {
